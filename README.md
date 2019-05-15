@@ -8,6 +8,11 @@ This is the repo for the Rails (with postgres) backend of the Holiday Photo App
 - in gemfile unncomment bcrypt, rack-cors, add gem 'active_model_serializers'
 - Uncomment origins in cors.rb. bundle
 - create migrations
+- set up relationships in models
+- check associations
+- create controllers
+
+
 
 # README
 
