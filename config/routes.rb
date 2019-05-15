@@ -9,4 +9,7 @@ Rails.application.routes.draw do
    end
  end
 
+# check this tomorrow:
+ post "/auth/create", to: "auth#create"
+
 end
