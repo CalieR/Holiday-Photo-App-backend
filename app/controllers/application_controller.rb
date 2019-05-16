@@ -14,6 +14,7 @@ class ApplicationController < ActionController::API
         request.headers["Authorization"]
       end
     
+      # current_user is reserved in rails, was getting nil token error
       def get_current_user
         # byebug
         token = get_token

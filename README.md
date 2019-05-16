@@ -11,8 +11,9 @@ This is the repo for the Rails (with postgres) backend of the Holiday Photo App
 - set up relationships in models
 - check associations
 - create controllers
-- create basic routes 
-
+- create basic routes
+- add auth, test with postman.
+- start on frontend - basic login page
 
 # README
 

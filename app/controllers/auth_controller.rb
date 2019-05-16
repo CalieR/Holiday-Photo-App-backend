@@ -12,6 +12,7 @@ class AuthController < ApplicationController
         end
       end
     
+      
       def show
         if logged_in
           render json: get_current_user
