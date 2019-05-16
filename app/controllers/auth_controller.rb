@@ -7,6 +7,7 @@ class AuthController < ApplicationController
           token = issue_token(payload)
           render json: { jwt: token, username: user.username }
         else
+            # could be either because user doesn't exist, or they entered the wrong details
           render json: { error: "The token couldn't be created. Login failed."}
         end
       end
