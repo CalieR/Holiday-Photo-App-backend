@@ -5,19 +5,10 @@ class Api::V1::UsersController < ApplicationController
         render json: users
     end
 
-    # lifted from auth lecture, alter these as req'd...
-
-    # def index
-    #     users = []
-    #     User.all.each do |user|
-    #       user_hash = {
-    #         username: user[:username],
-    #         id: user[:id]
-    #       }
-    #       users << user_hash
-    #     end
-    #     render json: users
-    #   end
+ def show 
+    user = User.find_by_id(params[:id])
+    render json: user
+ end
     
       def create
         user = User.new(name: params[:name], username: params[:username], password: params[:password])
