@@ -4,12 +4,13 @@ Rails.application.routes.draw do
  namespace :api do
    namespace :v1 do
      resources :users
-     resources :photos, only: [:index]
-     resources :albums, only: [:index]
+     resources :photos
+     resources :albums
    end
  end
 
 # check this tomorrow:
  post "/auth/create", to: "auth#create"
+ get 'auth/show', to: 'auth#show'
 
 end
