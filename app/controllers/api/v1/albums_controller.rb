@@ -5,14 +5,13 @@ class Api::V1::AlbumsController < ApplicationController
         render json: albums
     end
 
-    # alter this to show a user's albums when they are logged in
-    # def my_posts
-    #     if logged_in
-    #       render json: User.find(current_user[:id]).posts
-    #     else 
-    #       render json: {error: "Posts not available."}
-    #     end
-    #   end
+    def create 
+        album = Album.create(name: params[:name])
+        albumUser = AlbumUser.create(album: album, user: get_current_user)
+        render json: album
+    end
+
+  
 
 
 end
