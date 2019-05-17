@@ -15,15 +15,11 @@ class ApplicationController < ActionController::API
       end
     
       # current_user is reserved in rails, was getting nil token error
+      # get the user id from the token
       def get_current_user
-        # byebug
         token = get_token
         decoded_token = decode_token(token)
         user = User.find(decoded_token["user_id"])
-        user_hash = {
-          username: user[:username],
-          id: user[:id]
-        }
       end
       
       def logged_in

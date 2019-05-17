@@ -17,13 +17,15 @@ class Api::V1::UsersController < ApplicationController
         end
     end
 
-    def show 
-        user = User.find_by_id(params[:id])
+    # this can be called 'profile' now (doesn't need to be restful)
+
+    def profile
+        user = get_current_user
         if user
-          render json: user
+          render json: user, serializer: UserSerializer
             # go to user show page
         else 
-          render json: "user doesn't exist, please sign up"
+          render json: {error: "You must be signed in to see that page"}
             # go to sign up page
         end
     end
