@@ -2,15 +2,17 @@
 
 Rails.application.routes.draw do
  namespace :api do
-   namespace :v1 do
-     resources :users
-     resources :photos
-     resources :albums
+    namespace :v1 do
+      get "users/profile", to: 'users#profile', as: 'profile' 
+      resources :users
+      resources :photos
+      resources :albums
    end
  end
 
-# check this tomorrow:
+
  post "/auth/create", to: "auth#create"
  get 'auth/show', to: 'auth#show'
+
 
 end
