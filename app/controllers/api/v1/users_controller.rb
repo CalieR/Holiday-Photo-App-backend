@@ -4,20 +4,14 @@ class Api::V1::UsersController < ApplicationController
         users = User.all 
         render json: users
     end
-
-
-#  def show 
-#     user = User.find_by_id(params[:id])
-#     render json: user
-#  end
-
     
     def create
-    user = User.new(user_params)
+        user = User.new({:username=> params[:username], :password=> params[:password]})
+        # byebug
         if user.save
             payload = {user_id: user.id}
             token = issue_token(payload)
-            render json: { jwt: token }
+            render json: { jwt: token, username: user.username}
         else
             render json: { error: "Signup not successful !"}
         end
