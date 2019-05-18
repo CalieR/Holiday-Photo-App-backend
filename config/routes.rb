@@ -7,6 +7,8 @@ Rails.application.routes.draw do
       resources :users
       resources :photos
       resources :albums
+      resources :album_photos
+      resources :album_users
    end
  end
 
