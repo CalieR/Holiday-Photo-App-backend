@@ -7,7 +7,6 @@ class Api::V1::UsersController < ApplicationController
     
     def create
         user = User.new({:username=> params[:username], :password=> params[:password]})
-        # byebug
         if user.save
             payload = {user_id: user.id}
             token = issue_token(payload)
