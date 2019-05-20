@@ -17,6 +17,11 @@ class Api::V1::AlbumsController < ApplicationController
         render json: album 
     end
 
+    def invite
+        # byebug 
+        result = User.all - Album.find(params[:id]).users
+        render json: result
+    end
   
 
 
