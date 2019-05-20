@@ -4,6 +4,7 @@ Rails.application.routes.draw do
  namespace :api do
     namespace :v1 do
       get "users/profile", to: 'users#profile', as: 'profile' 
+      post "albums/invite", to: 'albums#invite'
       resources :users
       resources :photos
       resources :albums
