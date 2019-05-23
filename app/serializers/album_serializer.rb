@@ -1,9 +1,7 @@
 class AlbumSerializer < ActiveModel::Serializer
-  attributes :id, :name, :photos, :users, :album_photos
+  attributes :id, :name, :photos, :users
 
-  def photos 
-    object.album_photos  
-end
+
 
 
 end
