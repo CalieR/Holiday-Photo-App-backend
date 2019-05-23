@@ -10,6 +10,7 @@ class Api::V1::PhotosController < ApplicationController
     def create 
         # byebug
         photo = Photo.create(user: get_current_user, image_url: params[:image], title: params[:title], description: params[:description])
+        # currently not being created:
         album_photo = AlbumPhoto.create(photo: photo, album_id: params[:album])
         render json: photo
     end
