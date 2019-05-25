@@ -4,4 +4,6 @@ class Album < ApplicationRecord
     has_many :album_photos
     has_many :photos, through: :album_photos
 
+    validates :name, uniqueness: true, presence: :true 
+
 end

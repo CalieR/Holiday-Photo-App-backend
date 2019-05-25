@@ -1,5 +1,6 @@
 class Api::V1::AlbumsController < ApplicationController
 
+
     def index 
         albums = Album.all 
         render json: albums
@@ -13,8 +14,14 @@ class Api::V1::AlbumsController < ApplicationController
 
     def create 
         album = Album.create(name: params[:name])
-        albumUser = AlbumUser.create(album: album, user: get_current_user, admin: true)
-        render json: album 
+        # byebug
+        if album.valid?
+            albumUser = AlbumUser.create(album: album, user: get_current_user, admin: true)
+            render json: album 
+        else
+            # byebug
+            render json: {error: album.errors.full_messages}
+        end
     end
 
     def invite
