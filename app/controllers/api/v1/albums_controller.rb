@@ -11,7 +11,7 @@ class Api::V1::AlbumsController < ApplicationController
         render json: album
     end
     
-# add some validation here so only a valid album (has a title) can be created
+
     def create 
         album = Album.create(name: params[:name])
         # byebug
@@ -20,7 +20,7 @@ class Api::V1::AlbumsController < ApplicationController
             render json: album 
         else
             # byebug
-            render json: {error: album.errors}
+            render json: {error: album.errors.full_messages}
         end
     end
 
