@@ -8,7 +8,8 @@ class Api::V1::AlbumsController < ApplicationController
 
     def show 
         album = Album.find(params[:id])
-        render json: album
+        creator = album.album_users.find_by(admin: true).user.username
+        render json: {album: AlbumSerializer.new(album), creator: creator}
     end
     
 
@@ -17,7 +18,8 @@ class Api::V1::AlbumsController < ApplicationController
         # byebug
         if album.valid?
             albumUser = AlbumUser.create(album: album, user: get_current_user, admin: true)
-            render json: album 
+            render json: album
+             
         else
             # byebug
             render json: {error: album.errors.full_messages}
