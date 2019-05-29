@@ -21,7 +21,7 @@ class Api::V1::UsersController < ApplicationController
     def profile
         user = get_current_user
         if user
-          render json: user, serializer: UserSerializer
+          render json: user, serializer: UserSerializer, include: "**"
             # go to user show page
         else 
           render json: {error: "You must be signed in to see that page"}
