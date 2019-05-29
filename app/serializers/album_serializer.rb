@@ -1,6 +1,7 @@
 class AlbumSerializer < ActiveModel::Serializer
-  attributes :id, :name, :photos, :users
+  attributes :id, :name, :users
 
+  has_many :photos
 
 
 

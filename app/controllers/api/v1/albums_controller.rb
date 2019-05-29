@@ -1,19 +1,19 @@
 class Api::V1::AlbumsController < ApplicationController
 
 
-    def index 
+    def index
         albums = Album.all 
         render json: albums
     end
 
-    def show 
+    def show
         album = Album.find(params[:id])
         creator = album.album_users.find_by(admin: true).user.username
         render json: {album: AlbumSerializer.new(album), creator: creator}
     end
     
 
-    def create 
+    def create
         album = Album.create(name: params[:name])
         # byebug
         if album.valid?
