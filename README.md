@@ -25,13 +25,13 @@ postgres (PostgreSQL) 11.3
 Setup the Rails database:
 
 ```
+bundle 
 
 rails db:create
 
 rails db:migrate
 
 ```
-There is no seed data for this project
 
 Start the Rails server.  The frontend will default to localhost:3000 so use -p flag to select a different port:
 
