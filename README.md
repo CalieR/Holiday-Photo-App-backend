@@ -1,41 +1,50 @@
-# Holiday-Photo-App-backend
+# PicShare - backend
 
-This is the repo for the Rails (with postgres) backend of the Holiday Photo App
+This is the repository for the backend of the PicShare app - an app which allows friends to combine their individual photos from an event into a single shared album.  
 
-## Steps:
+PicShare was inspired by a holiday with friends to Florida in 2009; I built it as my Flatiron final project so that we could finally put all our photos from the holiday into one place.
 
-- run rails g new to create the rails app, initialize the repo and push to github
-- in gemfile unncomment bcrypt, rack-cors, add gem 'active_model_serializers'
-- Uncomment origins in cors.rb. bundle
-- create migrations
-- set up relationships in models
-- check associations
-- create controllers
-- create basic routes
-- add auth, test with postman.
-- start on frontend - basic login page
+## Getting started
 
-# README
+Fork and clone this repository.  You will also need to fork and clone the frontend repository which can be found here: https://github.com/CalieR/Holiday-Photo-App-frontend
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Prerequisites
 
-Things you may want to cover:
+This app was built using the following versions: 
 
-- Ruby version
+```
+ruby 2.6.1p33 (2019-01-30 revision 66950) [x86_64-darwin18]
 
-- System dependencies
+Rails 5.2.3
 
-- Configuration
+postgres (PostgreSQL) 11.3
 
-- Database creation
+```
+### Installing
 
-- Database initialization
+Setup the Rails database:
 
-- How to run the test suite
+```
 
-- Services (job queues, cache servers, search engines, etc.)
+rails db:create
 
-- Deployment instructions
+rails db:migrate
 
-- ...
+```
+There is no seed data for this project
+
+Start the Rails server.  The frontend will default to localhost:3000 so use -p flag to select a different port:
+
+```
+rails s -p 3002
+
+```
+
+## Built with
+
+- Ruby on Rails
+- PostgreSQL
+
+## Acknowledgments
+
+Thank you to all the tireless TCF's and instructors at Flatiron School
